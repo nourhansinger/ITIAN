@@ -1,0 +1,30 @@
+{% extends 'parent.html' %}
+
+{% block content %}
+
+<h2>List of Trainees</h2>
+
+<a href="{% url 'trainee_add' %}">Add Trainee</a>
+
+<ul>
+  {% for trainee in trainees %}
+    <li>
+      Courses:
+      {% for course in trainee.courses.all %}
+        {{ course.name }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        None
+      {% endfor %}
+
+      (
+        <a href="{% url 'trainee_getbyid' trainee.id %}">View</a> |
+        <a href="{% url 'trainee_update' trainee.id %}">Edit</a> |
+        <a href="{% url 'trainee_delete' trainee.id %}">Delete</a>
+      )
+    </li>
+  {% empty %}
+    <li>No trainees found.</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

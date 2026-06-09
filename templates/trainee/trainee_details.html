@@ -1,0 +1,17 @@
+{% extends 'parent.html' %}
+
+{% block content %}
+<h2>Trainee Details</h2>
+<p><strong>Name:</strong> {{ trainee.name }}</p>
+<p><strong>Courses:</strong>
+<ul>
+{% for course in trainee.courses.all %}
+    <li>{{ course.name }}</li>
+{% empty %}
+    <li>No courses assigned.</li>
+{% endfor %}
+</ul>
+</p>
+
+<a href="{% url 'trainee_list' %}">Back to List</a>
+{% endblock %}

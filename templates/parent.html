@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ITIANS</title>
+</head>
+<body>
+    <header>
+        <h1>ITIANS Trainee Management System</h1>
+        <nav>
+            <a href="{% url 'trainee_list' %}">Trainee List</a> | 
+            <a href="{% url 'trainee_add' %}">Add New Trainee</a> | 
+        </nav>
+    </header>
+    <hr>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
