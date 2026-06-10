@@ -1,0 +1,26 @@
+{% extends 'parent.html' %}
+
+{% block content %}
+
+<h2>List of Courses</h2>
+
+<a href="{% url 'course_add' %}">Add Course</a>
+
+<ul>
+  {% for course in courses %}
+  <li>
+    {{course.name}} - {{course.description}}
+    <br>
+    (
+    <a href="{% url 'course_detail' course.id %}">View</a> |
+    <a href="{% url 'course_update' course.id %}">Edit</a> |
+    <a href="{% url 'course_delete' course.id %}">Delete</a>
+    )
+  </li>
+  <br>
+  {% empty %}
+  <li>No courses found.</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

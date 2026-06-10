@@ -8,22 +8,25 @@
 
 <ul>
   {% for trainee in trainees %}
-    <li>
-      Courses:
-      {% for course in trainee.courses.all %}
-        {{ course.name }}{% if not forloop.last %}, {% endif %}
-      {% empty %}
-        None
-      {% endfor %}
+  <li>
+    {{trainee.name}}
+    <br>
+    Courses:
+    {% for course in trainee.courses.all %}
+    {{ course.name }}{% if not forloop.last %}, {% endif %}
+    {% empty %}
+    None
+    {% endfor %}
 
-      (
-        <a href="{% url 'trainee_getbyid' trainee.id %}">View</a> |
-        <a href="{% url 'trainee_update' trainee.id %}">Edit</a> |
-        <a href="{% url 'trainee_delete' trainee.id %}">Delete</a>
-      )
-    </li>
+    (
+    <a href="{% url 'trainee_getbyid' trainee.id %}">View</a> |
+    <a href="{% url 'trainee_update' trainee.id %}">Edit</a> |
+    <a href="{% url 'trainee_delete' trainee.id %}">Delete</a>
+    )
+  </li>
+  <br>
   {% empty %}
-    <li>No trainees found.</li>
+  <li>No trainees found.</li>
   {% endfor %}
 </ul>
 

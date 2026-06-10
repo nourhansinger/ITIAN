@@ -1,0 +1,11 @@
+{% extends 'parent.html' %} 
+
+{% block content %}
+<h2>Add New Course</h2>
+<form method="post">
+  {% csrf_token %} 
+  {{ form.as_p }}
+  <button type="submit">Save</button>
+</form>
+<a href="{% url 'course_list' %}">Back to List</a>
+{% endblock %}

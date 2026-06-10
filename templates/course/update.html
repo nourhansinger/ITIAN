@@ -1,0 +1,11 @@
+{% extends 'parent.html' %} 
+
+{% block content %}
+<h2>Update Course</h2>
+<form method="post">
+  {% csrf_token %} 
+  {{ form.as_p }}
+  <button type="submit">Update</button>
+</form>
+<a href="{% url 'course_list' %}">Cancel</a>
+{% endblock %}
